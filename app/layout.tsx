@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
+import { Toaster } from "@/components/ui/toast";
 
-
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,10 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={cn("font-sans", geist.variable)}>
       <body className="antialiased">
         <ClerkProvider>
           {children}
+          <Toaster />
         </ClerkProvider>
       </body>
     </html>

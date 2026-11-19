@@ -17,7 +17,7 @@ export const userRoleEnum = pgEnum("user_role", userRoles);
 
 export const userTable = pgTable("user", {
   id,
-  clerkId: text().notNull().unique(),
+  clerkUserId: text().notNull().unique(),
   email: text().notNull().unique(),
   name: text().notNull(),
   role: userRoleEnum().notNull().default("user"),

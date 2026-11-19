@@ -5,7 +5,9 @@ import * as schema from "./schema";
 export const db = drizzle({
   schema,
   connection: {
-    url: process.env.DATABASE_URL ||"postgres://postgres:sweetwandia@localhost:5432/course_platform",
+    user: env.DB_USER,
+    password: env.DB_PASSWORD,
+    host: env.DB_HOST,
+    database: env.DB_NAME,
   },
-  },
-);
+});
